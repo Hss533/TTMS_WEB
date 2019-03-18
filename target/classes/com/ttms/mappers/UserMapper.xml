@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ttms.dao.UserDao">
+
+	<resultMap type="User" id="UserResult">
+		<result property="id" column="id" />
+		<result property="account" column="account" />
+		<result property="password" column="password" />
+		<result property="nickname" column="nickname" />
+		<result property="telephone" column="telephone" />
+		<result property="sex" column="sex" />
+		<result property="birthday" column="birthday" />
+		<result property="signature" column="signature" />
+		<result property="work" column="work" />
+		<result property="lifeStatus" column="lifeStatus" />
+		<result property="interest" column="interest" />
+		<result property="userImage" column="userImage" />
+		
+		<association property="power" column="powerId" select="com.ttms.dao.PowerDao.findById"></association>
+	</resultMap>
+	
+	<select id="find" parameterType="Map" resultMap="UserResult">
+		select * from t_user
+		<if test="account!=null and account!=''">
+		where account=#{account}
+		</if>
+		<if test="start!=null and size!=null">
+		limit #{start},#{size}
+		</if>
+	</select>
+
+	<select id="count" parameterType="Map" resultType="Long">
+		select count(*) from t_user
+	</select>
+	
+	<select id="login" parameterType="User" resultMap="UserResult">
+		select * from t_user where account=#{account} and password=#{password}
+	</select>
+	
+	<select id="checkAccount" parameterType="String" resultType="Integer">
+		select count(*) from t_user where account = #{account}
+	</select>
+	
+	<insert id="add" parameterType="User">
+		insert into t_user values (null,#{account},#{password},null,null,#{power.id},null,null,null,null,null,null,#{userImage})
+	</insert>
+	
+	<update id="update" parameterType="Power">
+		update t_user
+		<set>
+			<if test="password != null and password != '' ">
+				password = #{password},
+			</if>
+			<if test="nickname !=  null and nickname != '' ">
+				nickname = #{nickname},
+			</if>
+			<if test="telephone !=  null and telephone != '' ">
+				telephone = #{telephone},
+			</if>
+			<if test="power !=  null and power.id != null">
+				powerId = #{power.id},
+			</if>
+			<if test="sex != null and sex != '' ">
+				sex = #{sex},
+			</if>
+			<if test="birthday !=  null">
+				birthday = #{birthday},
+			</if>
+			<if test="signature !=  null and signature != '' ">
+				signature = #{signature},
+			</if>
+			<if test="work !=  null and work != '' ">
+				work = #{work},
+			</if>
+			<if test="lifeStatus !=  null and lifeStatus != '' ">
+				lifeStatus = #{lifeStatus},
+			</if>
+			<if test="interest !=  null and interest != '' ">
+				interest = #{interest},
+			</if>
+			<if test="userImage !=  null and userImage != '' ">
+				userImage = #{userImage},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="Integer">
+		delete from t_user where id = #{id}
+	</delete>
+	
+	<insert id="dianzan" parameterType="Map">
+		insert into t_user_information values(null,#{userId},#{informationId})
+	</insert>
+	
+	<select id="getZan" parameterType="Integer" resultType="String">
+		select informationId from t_user_information where userId = #{userId};
+	</select>
+	
+	<delete id="quxiaozan" parameterType="Map">
+		delete from t_user_information where userId = #{userId} and informationId = #{informationId}
+	</delete>
+
+	<select id="findById" resultMap="UserResult" >
+		select * from t_user where id=#{id}
+	</select>
+</mapper>

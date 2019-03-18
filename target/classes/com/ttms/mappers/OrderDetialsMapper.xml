@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ttms.dao.OrderDetialsDao">
+	
+	<resultMap type="OrderDetials" id="OrderDetialsResult">
+		<result property="id" column="id" />
+		<result property="orderId" column="order" />
+		<result property="uuid" column="uuid" />
+		<result property="state" column="state" />
+		<result property="orderDateTime" column="orderDateTime" />
+	</resultMap>
+	
+	<select id="find"  resultMap="OrderDetialsResult" parameterType="Integer">
+		select * from t_orderdetails where orderId=#{orderId} order by orderDateTime desc
+	</select>
+	
+	<select id="findAll"  resultMap="OrderDetialsResult" parameterType="Map">
+		select * from t_orderdetails  order by orderDateTime desc
+	</select>
+	
+	<insert id="add" parameterType="OrderDetials">
+		insert into t_orderdetails values (null,#{orderId},#{uuid},1,now())
+	</insert>
+	
+	<update id="updateadd" parameterType="OrderDetials">
+		update t_orderdetails set state=2 where uuid = #{uuid}
+	</update>
+	
+	<delete id="updatedel" parameterType="OrderDetials">
+		update t_orderdetails set state=3 where uuid = #{uuid}
+	</delete>
+	
+	<select id="findByUuid" parameterType="String" resultMap="OrderDetialsResult">
+		
+		select * from t_orderdetails
+		<where>
+			<if test="_parameter!=null">
+			 uuid=#{_parameter}
+			</if>
+		</where>
+	</select>
+	
+</mapper>

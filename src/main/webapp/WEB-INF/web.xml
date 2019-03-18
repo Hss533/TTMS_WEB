@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance
+			http://www.springmodules.org/schema/cache/springmodules-cache.xsd 
+			http://www.springmodules.org/schema/cache/springmodules-ehcache.xsd" 
+		 xmlns="http://java.sun.com/xml/ns/javaee" 
+				xsi:schemaLocation="
+				http://java.sun.com/xml/ns/javaee 
+				http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+		id="WebApp_ID" version="2.5">
+	<!-- 
+		Servlet容器需要在应用项目启动时，给应用项目初始化一个ServletContext作为公共环境容器存放公共信息。
+		servletContext中的信息都是由容器提供的
+	 -->
+	 
+	<!-- 
+	在web.xml中可以定义两种参数   一种是全局参数  通过<context-param></context-param>
+	在servlet里面可以通过getServletContext().getInitParamParameter("");得到
+	
+	一个是servlet参数  通过在servlet中声明<init-param></init-param>
+	这种之能在servlet的init()方法中通过this.getInitParamter("")取得
+	 -->
+	<!-- 项目名称  -->
+  	<display-name>TTMS</display-name>
+  	
+  	<!-- 首页 -->
+	<welcome-file-list>
+    	<welcome-file>index.jsp</welcome-file>
+  	</welcome-file-list>
+  	
+  	<!-- spring配置文件  -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+	<!-- 
+			容器启动时  context-param作为键值对放到servletContext中
+			然后找到linster 容器调用它的ContextInitialied方法  执行其中的操作
+	 -->
+	<!-- spring编码过滤器 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<async-supported>true</async-supported>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- session过滤器 -->
+	<filter>
+		<filter-name>SessionFilter</filter-name>
+		<filter-class>com.ttms.controller.FilterController</filter-class>
+	</filter> 
+	<filter-mapping>
+		<filter-name>SessionFilter</filter-name>
+		<url-pattern>/background/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- spring监听器  -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- 监听我们创建初始化数据 -->
+	<!-- 对项目进行初始化 -->
+	<listener>
+		<listener-class>com.ttms.init.InitComponent</listener-class>
+	</listener>
+	
+	<!-- 添加对springMVC的支持  -->
+	<servlet>
+		<servlet-name>springMVC</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:spring-mvc.xml</param-value>
+		</init-param>
+		<!-- 在项目启动时就加载该servlet，而不是等到有请求时加载  -->
+		<load-on-startup>1</load-on-startup>
+		<!-- 异步请求该servlet,不用等到该servlet处理完毕才返回结果 -->
+		<async-supported>true</async-supported>
+	</servlet>
+	<servlet-mapping>
+        <servlet-name>springMVC</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>springMVC</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+<!-- 	
+	<context-param>
+		<param-name>TTMS</param-name>
+		<param-value>bookdier</param-value>
+	</context-param>
+	设置session的过期时间  默认 tomcat的过期时间是30min
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config> -->
+</web-app>

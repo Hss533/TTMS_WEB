@@ -1,0 +1,237 @@
+@charset "UTF-8";
+*
+{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+	font-family: Microsoft YaHei,Helvetica,Arial,sans-serif;
+}
+a
+{
+	text-decoration: none;  /* 去除下划线 */
+}
+img,input
+{
+	border: none;           /* 取出边线 */
+	border: 1px solid none;        /* IE去除边线 */
+}
+li
+{
+	list-style: none;
+}
+
+.dingdanxiangqing
+{
+	width: 1200px;
+    margin: 0 auto;
+}
+.ddxq
+{
+	margin-top: 40px;
+}
+.ddxqtop
+{
+	padding-top: 40px;
+	background-color: #f4fff8;
+	height: 110px;
+	padding-left: 85px;
+	margin-bottom: 40px;
+	background-repeat: no-repeat;
+	background-position: 30px;
+	box-sizing: border-box;
+}
+.finish
+{
+	background-image: url(../image/ddwc.png);
+}
+.tuikuan
+{
+	padding-top: 28px;
+	background-image: url(../image/tkcg.png);
+}
+.ddxqtopTitle
+{
+	font-size: 24px;
+    font-weight: 700;
+}
+.finish .ddxqtopTitle
+{
+	color: #26ce61;
+}
+.tuikuan .ddxqtopTitle
+{
+	color: #4dbcf3;
+}
+.ddtkts
+{
+	font-size: 14px;
+    color: #999;
+}
+.xxddh
+{
+	margin-bottom: 8px;
+}
+.xxddid
+{
+	font-size: 16px;
+    color: #333;
+}
+.xxddts
+{
+	font-size: 12px;
+    color: #666;
+    float: right;
+}
+.xxddts i
+{
+	color: #f03d37;
+    font-style: normal;
+}
+.xxddtable
+{
+	width: 100%;
+    border: 1px solid #e5e5e5;
+    border-spacing: 0;
+    margin-bottom: 60px;
+}
+.xxddtable thead
+{
+	background-color: #f7f7f7;
+}
+.xxddtable thead tr th
+{
+	font-size: 16px;
+	color: #333;
+	width: 25%;
+	padding: 14px 0;
+	font-weight: 400;
+}
+.xxddtable td
+{
+	text-align: center;
+    padding: 20px 0;
+    color: #333;
+}
+.xxddtablename
+{
+	font-size: 16px;
+}
+.xxddtabletime
+{
+	font-size: 14px;
+    color: #f03d37;
+}
+.xxddtabledian
+{
+	font-size: 14px;
+}
+.tingting
+{
+	display: inline-block;
+    font-size: 14px;
+    color: #424242;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: top;
+}
+.seatssss
+{
+	display: inline-block;
+    text-align: left;
+}
+.seatssss span
+{
+	font-size: 12px;
+    margin-right: 2px;
+}
+.seatssss i
+{
+	font-size: 16px;
+    font-style: normal;
+    margin: 0 2px;
+}
+.rightSeat
+{
+	border-left: 1px solid #e5e5e5;
+    padding-left: 5px;
+}
+.ddxqxm
+{
+	margin-top: -20px;
+}
+.ddxqxmjtxx:before 
+{
+	content: " ";
+    display: table;
+}
+.ddxqxmjtxx:after 
+{
+	clear: both;
+	content: " ";
+    display: table;
+}
+.ddxqxmleft
+{
+	display: inline-block;
+    color: #333;
+}
+.ddxqxmleftn
+{
+	font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.ddxqxmleftd
+{
+	font-size: 14px;
+    margin-bottom: 4px;
+}
+.ddxqxmleftt
+{
+	font-size: 14px;
+    margin-bottom: 4px;
+}
+.ddxqxmright
+{
+	font-size: 14px;
+    color: #333;
+    float: right;
+    margin-top: 35px;
+}
+.ddxqxmright span
+{
+	font-size: 14px;
+    color: #333;
+}
+.ddxqxmright .zhdjq
+{
+	font-size: 36px;
+    color: #f03d37;
+    font-weight: 700;
+}
+.zhdjq:before 
+{
+	content: "\FFE5";
+    font-size: 24px;
+}
+.unpaid
+{
+	padding-top: 28px;
+	background-color: #fffbf2;
+    background-image: url(../image/daizhifu.png);
+}
+.unpaid .ddxqtopTitle
+{
+	color: #faaf00;
+}
+.unpaid span
+{
+	color: #faaf00;
+}
+.ddtkts span
+{
+	display: inline-block;
+    margin: 0 3px;
+}

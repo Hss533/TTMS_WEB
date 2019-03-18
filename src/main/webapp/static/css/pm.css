@@ -1,0 +1,290 @@
+@charset "UTF-8";
+*
+{
+	margin: 0px;
+	padding: 0px;
+}
+body
+{
+	font-family: Microsoft YaHei,Helvetica,Arial,sans-serif;
+}
+a
+{
+	text-decoration: none;  /* 去除下划线 */
+}
+img,input
+{
+	border: none;           /* 取出边线 */
+	border: 1px solid none;        /* IE去除边线 */
+}
+li
+{
+	list-style: none;
+}
+
+.mpqy
+{
+	width: 1200px;
+    margin: 0 auto;
+}
+.mpqytop
+{
+	height: 60px;
+    width: 100%;
+    margin: 40px 0;
+    text-align: center;
+}
+.mpqytopd
+{
+	float: left;
+    width: 25%;
+}
+.mpqytopd .titile
+{
+	color: #fff;
+    font-size: 12px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #ffd8d7;
+    position: relative;
+    top: 10px;
+}
+.active .titile
+{
+	background-color: #f03d37;
+}
+.mpqytopdBar
+{
+	width: 0;
+    height: 4px;
+    border-left: 150px solid #ffd8d7;
+    border-right: 150px solid #ffd8d7;
+}
+.first .mpqytopdBar
+{
+	border-left-color: transparent!important;
+}
+.last .mpqytopdBar
+{
+	border-right-color: transparent!important;
+}
+.active .mpqytopdBar
+{
+	border-color: #f03d37;
+}
+.mpqytopd .ttext
+{
+	font-size: 14px;
+    color: #999;
+    display: inline-block;
+    margin-top: 10px;
+}
+.active .ttext
+{
+	color: #f03d37;
+}
+.ttsj
+{
+	width: 100%;
+    height: 90px;
+    padding-top: 20px;
+    margin-bottom: 40px;
+    background-color: #fff3f3;
+}
+.ttsjxx
+{
+	padding-left: 55px;
+    min-height: 41px;
+    margin-left: 30px;
+    background: url(../image/shalou.png) no-repeat;
+    background-position: 0 17px;
+}
+.timeLip
+{
+	font-size: 16px;
+    color: #666;
+    margin-bottom: 4px;
+}
+.timeLip span
+{
+	font-size: 32px;
+    color: #f03d37;
+    margin: 0 5px;
+}
+.ttsjxxts
+{
+	font-size: 14px;
+    color: #f03d37;
+}
+.warning
+{
+	font-size: 12px;
+    color: #666;
+    padding-left: 18px;
+    background: url(../image/hsth.png) no-repeat;
+    background-size: 12px;
+    background-position-y: 2px;
+    margin-bottom: 8px;
+}
+.warning span
+{
+	color: #faaf00;
+}
+.orderTable
+{
+	width: 100%;
+    border: 1px solid #e5e5e5;
+    border-spacing: 0;
+    margin-bottom: 60px;
+}
+.orderTable thead
+{
+	 background-color: #f7f7f7;	
+}
+.orderTable thead th
+{
+	font-size: 16px;
+    color: #333;
+    width: 25%;
+    padding: 14px 0;
+    font-weight: 400;
+}
+.orderTable td
+{
+	text-align: center;
+    padding: 20px 0;
+    color: #333;
+}
+.dymca
+{
+	font-size: 16px;
+}
+.syrqa
+{
+	font-size: 14px;
+    color: #f03d37;
+}
+.dydza
+{
+	font-size: 14px;
+}
+.jhfyt
+{
+	display: inline-block;
+    font-size: 14px;
+    color: #424242;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: top;
+}
+.zuowei
+{
+	display: inline-block;
+    text-align: left;
+}
+.zuowei span
+{
+	font-size: 12px;
+    margin-right: 2px;
+}
+.zuowei span i
+{
+	font-size: 16px;
+    font-style: normal;
+    margin: 0 2px;
+}
+.zuowei span.ybk
+{
+	border-left: 1px solid #e5e5e5;
+    padding-left: 5px;
+}
+.zfqy
+{
+	text-align: right;
+}
+.zfqyjp
+{
+	font-size: 14px;
+    color: #333;
+    margin-bottom: 17px;
+}
+.qa
+{
+	font-size: 36px;
+    color: #f03d37;
+}
+.qa:before
+{
+	content: "\FFE5";
+    font-size: 24px;
+}
+.zfana
+{
+	cursor: pointer;
+    display: inline-block;
+    width: 190px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    color: #fff;
+    background-color: #f03d37;
+    border-radius: 100px;
+    box-shadow: 0 2px 10px -2px #f03d37;
+}
+.zhifushibaick
+{
+	display: none;
+	position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(0,0,0,.4);
+}
+.zhifushibaimain
+{
+	width: 460px;
+    height: 155px;
+    padding: 30px 0;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    text-align: center;
+}
+.zhifushibaimain span
+{
+	display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: url(../image/hsth.png) no-repeat;
+}
+.zhifushibaimain p
+{
+	font-size: 14px;
+    color: #666;
+    margin-bottom: 26px;
+    margin-top: 12px;
+}
+.zhifushibaimain .ygxan
+{
+	color: #fff;
+    background-color: #f03d37;
+    box-shadow: 0 2px 10px -2px #f03d37;
+    border-radius: 100px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 16px;
+    width: 260px;
+    padding: 0;
+    cursor: default;
+	display: inline-block;
+}

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ttms.dao.FilmDao">
+	
+	<resultMap type="Film" id="FilmResult">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="englishName" column="englishName" />
+		<result property="cover" column="cover" />
+		<result property="duration" column="duration" />
+		<result property="box" column="box" />
+		<result property="score" column="score" />
+		<result property="resume" column="resume" />
+		<result property="isHot" column="isHot" />
+		<result property="clickHit" column="clickHit" />
+		
+		<!-- assocation 是一对一  collection 是一对多 -->
+		<association property="employee" column="employeeId" select="com.ttms.dao.EmployeeDao.findById"></association>
+		<collection property="filmTypes" column="id" select="com.ttms.dao.FilmTypeDao.findByFilmId"></collection>
+		<collection property="employees" column="id" select="com.ttms.dao.EmployeeDao.findByFilmId"></collection>
+		<collection property="pictures" column="id" select="com.ttms.dao.PictureDao.findByFilmId"></collection>
+	</resultMap>
+	
+	<select id="find" parameterType="Map" resultMap="FilmResult">
+		select * from t_film
+		<where>
+			<if test="catId != null and catId == 1">
+				and isHot=1
+			</if>
+			<if test="catId != null and catId == 2">
+				and score &gt; 8
+			</if>
+			<if test="typeId != null and typeId != 0">
+				and id in (select filmId from t_film_filmtype where filmTypeId = #{typeId})
+			</if>
+		</where>
+		<if test="sortId != null and sortId == 1">
+			order by score desc
+		</if>
+		<if test="sortId != null and sortId == 2">
+			order by clickHit desc
+		</if>
+		<if test="sortId != null and sortId == 3">
+			order by publishDate desc
+		</if>
+		<if test="start != null and size != null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
+	<update id="update" parameterType="Film">
+		update t_film
+		<set>
+			<if test="name !=  null and name != '' ">
+				name = #{name},
+			</if>
+			<if test="name !=  null and name != '' ">
+				name = #{name},
+			</if>
+			<if test="englishName !=  null and englishName != '' ">
+				englishName = #{englishName},
+			</if>
+			<if test="cover !=  null and cover != '' ">
+				cover = #{cover},
+			</if>
+			<if test="duration !=  null">
+				duration = #{duration},
+			</if>
+			<if test="score !=  null">
+				score = #{score},
+			</if>
+			<if test="box !=  null">
+				box = #{box},
+			</if>
+			<if test="resume !=  null and resume != '' ">
+				resume = #{resume},
+			</if>
+			<if test="publishDate !=  null">
+				publishDate = #{publishDate},
+			</if>
+			<if test="isHot !=  0">
+				isHot = #{isHot},
+			</if>
+			<if test="clickHit !=  0">
+				clickHit = #{clickHit},
+			</if>
+			<if test="employee !=  null and employee.id != null">
+				employeeId = #{employee.id},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<select id="count" parameterType="Map" resultType="Long">
+		select count(*) from t_film
+	</select>
+	
+	<insert id="add" parameterType="Film">
+		insert into t_film values(null,#{name},#{englishName},#{cover},#{duration},0,#{score},#{resume},1,0,#{employee.id},#{publishDate})
+	</insert>
+	
+	<insert id="addMiddleTable" parameterType="Map">
+		insert into t_film_filmtype values(null,#{filmId},#{filmTypeId})
+	</insert>
+	
+	<insert id="addPictures" parameterType="Map">
+		insert into t_picture values(null,#{filmId},#{url})
+	</insert>
+	
+	<select id="getMaxId" resultType="Integer">
+		select max(id) from t_film
+	</select>
+	
+	<select id="findById" parameterType="Integer" resultMap="FilmResult">
+		select * from t_film where id = #{id}
+	</select>
+	
+	<select id="findByFilmTypeId" parameterType="Integer" resultMap="FilmResult">
+		select tf.* from t_film tf,t_film_filmType tff
+  		where tf.id = tff.filmId 
+  		and tff.filmTypeId = #{id}
+	</select>
+	
+	<select id="findByEmployeeId" parameterType="Integer" resultMap="FilmResult">
+		select tf.* from t_film tf,t_film_employee tfe
+  		where tf.id = tfe.filmId 
+  		and tfe.employeeId = #{id}
+	</select>
+	
+	<select id="getHotNum" resultType="Integer">
+		select count(*) from t_film  where isHot = 1
+	</select>
+	
+	<select id="getFilmByHot" parameterType="Map" resultMap="FilmResult">
+		select * from t_film where isHot=1 order by publishDate DESC limit #{count}
+	</select>
+	
+	<select id="getFilmByBox" parameterType="Map" resultMap="FilmResult">
+		select * from t_film order by box DESC limit #{count}
+	</select>
+	
+	<select id="getFilmByClickHit" parameterType="Map" resultMap="FilmResult">
+	 	select * from t_film order by clickHit DESC limit #{count}
+	</select>
+	
+	<select id="getFilmByScore" parameterType="Map" resultMap="FilmResult">
+		select * from t_film order by score DESC limit #{count}
+	</select>
+	
+	<delete id="deleteByFilmId" parameterType="Integer">
+		delete from t_film_filmtype where filmId = #{filmId} 
+	</delete>
+	
+	<delete id="delete" parameterType="Integer">
+		delete from t_film where id = #{id}
+	</delete>
+	
+	<delete id="deletePictures" parameterType="Integer">
+		delete from t_picture where filmId = #{filmId}
+	</delete>
+	
+	<select id="findCountByName" parameterType="String" resultType="Integer">
+		select count(*) from t_film where name like #{name}
+	</select>
+	<select id="findByName" parameterType="String" resultMap="FilmResult">
+		select * from t_film where name like #{name}
+	</select>
+	
+</mapper>

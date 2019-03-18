@@ -1,0 +1,531 @@
+@charset "UTF-8";
+*
+{
+	margin: 0px;
+	padding: 0px;
+}
+body
+{
+	font-family: Microsoft YaHei,Helvetica,Arial,sans-serif;
+}
+a
+{
+	text-decoration: none;  /* 去除下划线 */
+}
+img,input
+{
+	border: none;           /* 取出边线 */
+	border: 1px solid none;        /* IE去除边线 */
+}
+li
+{
+	list-style: none;
+}
+
+.gerenzhongxin
+{
+	width: 1200px;
+    margin: 0 auto;
+}
+.grzxnr
+{
+    margin-top: 30px;
+    overflow: hidden;
+}
+.neirong
+{
+	padding: 0 18px;
+}
+.shitineirong
+{
+	border: 1px solid #e1e1e1;
+    position: relative;
+}
+.shitineirong:before 
+{
+	content: " ";
+    display: table;
+}
+.shitineirong:after 
+{
+	clear: both;
+	content: " ";
+    display: table;
+}
+.shitineirongleft
+{
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: #f4f3f4;
+    text-align: center;
+    border-right: 1px solid #e1e1e1;
+}
+.shitineirongleft h1
+{
+	margin-top: 40px;
+    margin-bottom: 30px;
+    font-size: 22px;
+    color: #222;
+    font-weight: 400;
+}
+.shitineirongleft a
+{
+	display: block;
+    font-weight: 400;
+    color: #333;
+    height: 40px;
+    width: 202px;
+    margin-left: -1px;
+    line-height: 40px;
+    font-size: 18px;
+}
+.shitineirongleft .active
+{
+	color: #fff;
+    background-color: #ed3931;
+    cursor: default;
+}
+.shitineirongright
+{
+	float: left;
+	margin-left: 200px;
+    padding-left: 40px;
+    width: 922px;
+   	min-height: 900px;
+}
+.jbtitle
+{
+	padding: 26px 0;
+	color: #ec443f;
+	font-size: 18px;
+	border-bottom: 1px solid #e1e1e1;
+    margin-bottom: 30px;
+}
+.jbimage
+{
+	text-align: center;
+    float: left;
+    color: #333;
+    background: #fff;
+    width: 270px;
+}
+.jbimage img
+{
+	width: 258px;
+    height: 258px;
+}
+.genghuananniu
+{
+	position: relative;
+    cursor: pointer;
+}
+.anniu
+{
+	cursor: pointer;
+    margin: 20px auto 0;
+    width: 182px;
+    height: 56px;
+    line-height: 56px;
+    color: #5b5b5b;
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    border: 1px;
+    font-size: 18px;
+    padding: 0;
+}
+#fileUpload
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+    opacity: 0;
+    bottom: -50px;
+    cursor: pointer;
+}
+.jbimagetishi
+{
+	margin-top: 10px;
+    color: #999;
+    font-size: 18px;
+    line-height: 30px;
+}
+#fm
+{
+	float: left;
+    width: 495px;
+    margin-left: 58px;
+}
+.nnnchen
+{
+	color: #666;
+    position: relative;
+    margin: 20px 0;
+    padding-left: 90px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.fmtop
+{
+	margin-top: 0;
+}
+#fm p
+{
+	font-size: 16px;
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    text-align: right;
+    color: #333;
+    padding: 0;
+    margin: 0;
+}
+#fm input[type=text]
+{
+	width: 240px;
+    font-size: 12px;
+    height: 30px;
+    font: inherit;
+    margin: 0;
+    padding: 1px 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+	padding-left: 10px;
+}
+.sexxx
+{
+	margin-left: 12px;
+}
+.xsr span
+{
+	display: inline-block;
+}
+.selectTime
+{
+	display: inline-block;
+    background: transparent;
+    border: 1px solid #999;
+    border-radius: 0;
+    font-size: 14px;
+    height: 30px;
+    position: relative;
+}
+.selectTime select
+{
+	padding: 0 20px 0 10px;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+}
+.selectTime:after 
+{
+	content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #999;
+    position: absolute;
+    top: 13px;
+    right: 3px;
+    z-index: -1;
+}
+.duoxuan
+{
+	height: 110px;
+}
+.duoxuankuang
+{
+	font-size: 14px;
+    width: 300px;
+}
+.duoxuankuang input
+{
+	display: none;
+}
+.duoxuankuang label
+{
+	padding-left: 20px;
+	background: url(../image/yonghuno.png) 0 no-repeat;
+	display: inline-block;
+}
+.duoxuankuang label.active
+{
+	background: url(../image/yonghuyes.png) 0 no-repeat;
+}
+.xingqutishi
+{
+	white-space: nowrap;
+    color: #ccc;
+}
+.nnnqqqq
+{
+	color: #666;
+    position: relative;
+    margin-top: 40px;
+    padding-left: 90px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.baocunanniu
+{
+	zoom: 1;
+}
+.baocunanniu:before 
+{
+	content: " ";
+    display: table;
+}
+.baocunanniu:after
+{
+	content: "";
+    display: block;
+    clear: both;
+}
+.eeendBu
+{
+	cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 40px;
+    border: none;
+    background-color: #ed3931;
+    padding: 0;
+}
+.tanchuImg
+{
+	width: 524px;
+    height: 550px;
+    position: fixed;
+    top: 100px;
+    z-index: 1001;
+	display: none;
+    left: 0;
+    margin: 5% auto;
+    right: 0;
+}
+.tanchukuang
+{
+	background-color: #fff;
+    z-index: 1001;
+}
+.tanchukuangimg
+{
+	box-sizing: border-box;
+    height: 50px;
+    background-color: #ebebeb;
+    font-size: 16px;
+    padding: 16px;
+    color: #333;
+}
+.gbicon
+{
+	cursor: pointer;
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    float: right;
+    
+}
+.gbicon:before 
+{
+	content: "";
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    background: #000;
+    height: 1px;
+    margin-top: 0;
+	transform: rotate(45deg);
+}
+.gbicon:after 
+{
+	content: "";
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    background: #000;
+    height: 1px;
+    margin-top: 0;
+	transform: rotate(-45deg);
+}
+.tanchukuangcenter
+{
+	text-align: center;
+    width: 100%;
+    height: 100%;
+	margin-top: 30px;
+	display: flex;
+}
+.jutiiitupian
+{
+	width: 384px;
+	height: 384px;
+	margin: 0 auto;
+	border: 1px solid #e5e5e5;
+}
+.tttttp
+{
+	width: 100%;
+	height: 100%;
+}
+.tanchukuangfoot
+{
+	margin-top: 20px;
+    padding: 0 30px 30px;
+    text-align: right;
+}
+.bbcan
+{
+	cursor: pointer;
+    color: #fff;
+    background-color: #ed3931;
+    display: inline-block;
+    height: 34px;
+    width: 72px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 34px;
+    border-radius: 5px;
+}
+.qqqx
+{
+	display: inline-block;
+    height: 34px;
+    width: 72px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 34px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #000;
+    background-color: #ebebeb;
+}
+.oneOrder
+{
+	border: 1px solid #e5e5e5;
+    margin: 0 40px 30px 0;
+}
+.oneOrderHeader
+{
+	background-color: #f7f7f7;
+    font-size: 14px;
+    padding: 16px 20px;
+}
+.oneOrderTimer
+{
+	color: #333;
+    display: inline-block;
+    margin-right: 30px;
+}
+.oneOrderpdh
+{
+	color: #999;
+}
+.scannn
+{
+	width: 15px;
+    height: 16px;
+    float: right;
+    background: url(../image/shanchuanniu.png) 0px no-repeat;
+}
+.oneOrderContent
+{
+	padding: 20px;
+    padding-right: 0;
+}
+.oneOrderImage
+{
+	border: 2px solid #fff;
+	box-shadow: 0 1px 2px 0 hsla(0,0%,53%,.5);
+	margin-right: 11px;
+    font-size: 0;
+    display: inline-block;
+    vertical-align: top;
+}
+.oneOrderImage img
+{
+	width: 66px;
+    height: 91px;
+}
+.oneOrderjs
+{
+	width: 49%;
+	display: inline-block;
+    vertical-align: top;
+}
+.movieName
+{
+	font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    margin: 4px 0 7px -6px;
+}
+.studioName
+{
+	font-size: 12px;
+    color: #999;
+    margin-bottom: 4px;
+}
+.selectSeat
+{
+	font-size: 12px;
+    color: #999;
+    margin-bottom: 4px;
+}
+.selectSeat span
+{
+	display: inline-block;
+    margin-right: 5px;
+}
+.showwwtime
+{
+	font-size: 12px;
+    color: #f03d37;
+}
+.saleMoney
+{
+	font-size: 14px;
+    color: #333;
+    width: 12%;
+    line-height: 95px;
+    display: inline-block;
+    vertical-align: top;
+}
+.orderStateee
+{
+	width: 15%;
+	font-size: 14px;
+	color: #333;
+   	line-height: 95px;
+   	display: inline-block;
+    vertical-align: top;
+}
+.ckxqqq
+{
+	text-align: center;
+	font-size: 14px;
+    color: #333;
+    width: 12%;
+    line-height: 95px;
+    display: inline-block;
+    vertical-align: top;
+}
+.ckxqqq a
+{
+	color: #333;	
+}

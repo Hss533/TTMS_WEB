@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ttms.dao.EmployeeDao">
+	
+	<resultMap type="Employee" id="EmployeeResult">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		
+		<collection property="films" column="id" select="com.ttms.dao.FilmDao.findByEmployeeId"></collection>
+	</resultMap>
+	
+	<select id="find" parameterType="Map" resultMap="EmployeeResult">
+		select id,name from t_employee
+	</select>
+	
+	<select id="findById" parameterType="Integer" resultMap="EmployeeResult">
+		select * from t_employee where id = #{id};
+	</select>
+	
+	<select id="findByFilmId" parameterType="Integer" resultMap="EmployeeResult">
+		select te.* from t_employee te,t_film_employee tfe
+  		where te.id = tfe.employeeId
+  		and tfe.filmId = #{id}
+	</select>
+	
+</mapper>

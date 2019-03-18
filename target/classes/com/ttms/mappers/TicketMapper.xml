@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ttms.dao.TicketDao">
+
+	<resultMap type="Ticket" id="TicketResult">
+		<result property="id" column="id" />
+		<result property="uuid" column="uuid" />
+		<association property="seat" column="seatId" select="com.ttms.dao.SeatDao.findById"></association>
+		<association property="perform" column="performId" select="com.ttms.dao.PerformDao.findById"></association>
+	</resultMap>
+	
+	<select id="findByUuid"  resultMap="TicketResult" parameterType="String">
+		select * from t_ticket 
+		<where>
+			<if test="_parameter!=null">
+			 uuid=#{_parameter}
+			</if>
+		</where>
+	</select>
+
+	<select id="findById" parameterType="Integer" resultMap="TicketResult">
+		select * from t_ticket where id=#{id}
+		<if test="start!=null and size!=null">
+		limit #{start},#{size}
+		</if>
+	</select>
+	
+	<insert id="add" parameterType="Ticket">
+		insert into t_ticket values (null,#{uuid},#{perform.id},#{seat.id})
+	</insert>
+	
+	<select id="findByPerformId" resultMap="TicketResult"  parameterType="Integer" >
+		select * from t_ticket where performId=#{perform.id}		
+	</select>
+	
+	<select id="findByPerformIdAndSeatId" resultMap="TicketResult" >
+		select * from t_ticket where performId=#{performId} and seatId=#{seatId}	
+	</select>
+	
+</mapper>

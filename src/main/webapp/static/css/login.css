@@ -1,0 +1,158 @@
+@charset "UTF-8";
+
+*
+{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+.head
+{
+	width: 980px;
+	height: 45px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+}
+.movieLogo
+{
+	display: block;
+	float:left;
+	height: 45px;
+	width: 45px;
+}
+.head-title
+{
+	display: block;
+	float:left;
+	height:45px;
+	line-height: 45px;
+	font-size: 35px;
+}
+.center
+{
+	margin-top: 30px;
+	margin-left: auto;
+    margin-right: auto;
+    width: 980px;
+    height: 370px;
+}
+.center-img
+{
+	float: left;
+}
+.loginForm
+{
+	float: left;
+	margin-left: 112px;
+	width: 270px;
+	height: 272px;
+}
+.error
+{
+	width: 268px;
+	height: 38px;
+	border: 1px solid #F5D8A7;
+	background-color: #FFF6DB;
+	visibility: hidden;
+}
+.error input
+{
+	border: none;
+	background-color: #FFF6DB;
+}
+.error .tishi
+{
+	display: block;
+	width: 258px;
+	height: 18px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.tishi img
+{
+	width:18px;
+	height:18px;
+	padding-left: 10px;
+	padding-right: 8px;
+	float: left;
+}
+.tishi span
+{
+	float: left;
+	display: block;
+	height: 18px;
+	line-height: 18px;
+	font-size: 12px;
+}
+.zhanghaodenglu
+{
+	margin-top:12px;
+	height: 17px;
+	line-height: 17px;
+	font-weight: 400;
+	font-size: 14px;
+	color:#666;
+}
+.inputStyle
+{
+	width: 228px;
+	height: 36px;
+	padding-left:40px;
+	margin-top:10px;
+	border: 1px solid #e9e7ef;
+	line-height: 24px;
+	font-size: 14px;
+}
+.inputStyle:focus
+{
+	outline:none;
+	border: 1px solid #F76120;
+}
+.remember
+{
+	margin-top: 8px;
+}
+.tijiao
+{
+	margin-top: 28px;
+	color: #ffffff;
+	width: 270px;
+	height: 34px;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 1.5;
+	background-color: #ef4238;
+	border: 1px solid #ef4238;
+}
+.wangjimima
+{
+	font-size: 12px;
+	color: #ef4238;
+	float: right;
+	margin-top:8px;
+	text-decoration: none;
+}
+.bottom_tishi
+{
+	display:block; 
+	color: #666; 
+	font-size: 14px; 
+	margin-top: 10px;
+}
+.bottom_tishi a
+{
+	color: #ef4238;
+	text-decoration: none
+}
+.foot
+{
+	padding-top:75px;
+	width: 900px;
+	margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+    font-size: 12px;
+    color: #ccc;
+    font-family: initial;
+}

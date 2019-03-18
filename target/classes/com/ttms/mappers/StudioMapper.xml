@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ttms.dao.StudioDao">
+	
+	<resultMap type="Studio" id="StudioResult">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="length" column="length" />
+		<result property="width" column="width" />
+	</resultMap>
+	
+	<select id="find" parameterType="Map" resultMap="StudioResult">
+		select * from t_studio
+		<if test="start != null and size != null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
+	<select id="count" parameterType="Map" resultType="Long">
+		select count(*) from t_studio
+	</select>
+	
+	<insert id="add" parameterType="Studio"><!-- 添加的时候要批量添加座位 -->
+		insert into t_studio values(null,#{name},#{length},#{width})
+	</insert>
+	
+	<update id="update" parameterType="Long">
+		update t_studio
+		<set><!-- 修改演出厅 -->
+			<if test="name !=  null and name != '' ">
+				name = #{name},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="Integer">
+		delete from t_studio where id = #{id}
+	</delete>
+	
+	<select id="findById" parameterType="Integer" resultMap="StudioResult">
+		select * from t_studio where id=#{id}
+	</select>
+
+	<select id="getMaxId" resultType="Integer">
+		select max(id) from t_studio
+	</select>
+	
+</mapper>
